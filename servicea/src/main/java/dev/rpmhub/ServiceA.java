@@ -15,11 +15,14 @@
  */
 package dev.rpmhub;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 @Path("/servicea")
 public class ServiceA {
@@ -28,6 +31,9 @@ public class ServiceA {
     // Por meio de injeção de dependência,
     // instancie o Rest Cliente para o serviço B
 
+    @Inject
+    @RestClient
+    ServiceB service;
     
     @GET
     @Path("/person/{name}")
@@ -36,6 +42,7 @@ public class ServiceA {
         // TODO
         // Complete o método
         return null;
+        
     }
 
 }
