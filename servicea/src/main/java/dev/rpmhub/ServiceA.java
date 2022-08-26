@@ -28,6 +28,7 @@ public class ServiceA {
     // Por meio de injeção de dependência,
     // instancie o Rest Cliente para o serviço B
 
+    
     @GET
     @Path("/person/{name}")
     @Produces(MediaType.APPLICATION_JSON)

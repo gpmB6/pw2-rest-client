@@ -15,7 +15,6 @@
  */
 package dev.rpmhub;
 
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.ws.rs.GET;
@@ -24,19 +23,19 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/serviceb")
-public class ServiceB {
+@RegisterRestClient(baseUri = "http://localhost:4444/serviceb")
+public interface ServiceB {
 
-    private static final Logger LOGGER = Logger.getLogger(ServiceB.class.getName());
+    //private static final Logger LOGGER = Logger.getLogger(ServiceB.class.getName());
 
     @GET
     @Path("/person/{name}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Person getPerson(@PathParam("name") String name){
-        LOGGER.log(Level.INFO, "Received: {0} ", name);
-        Person person = new Person();
-        person.setName(name);
-        return person;
-    }
+    public Person getPerson(@PathParam("name") String name);
+      //LOGGER.log(Level.INFO, "Received: {0} ", name);
+      //Person person = new Person();
+      //person.setName(name);
+      //return person;
+    
 
 }
